@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="50" viewBox="0 0 1200 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Decorative Line with Pattern -->
+  <line x1="0" y1="25" x2="1200" y2="25" stroke="#00843D" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3,3"/>
+  
+  <!-- Repeating Islamic Geometric Pattern Elements -->
+  <g fill="#00843D" fill-opacity="0.2">
+    <!-- Pattern repeats every 100px -->
+    <path d="M100,25 L90,15 L80,25 L90,35 Z" />
+    <path d="M200,25 L190,15 L180,25 L190,35 Z" />
+    <path d="M300,25 L290,15 L280,25 L290,35 Z" />
+    <path d="M400,25 L390,15 L380,25 L390,35 Z" />
+    <path d="M500,25 L490,15 L480,25 L490,35 Z" />
+    <path d="M600,25 L590,15 L580,25 L590,35 Z" />
+    <path d="M700,25 L690,15 L680,25 L690,35 Z" />
+    <path d="M800,25 L790,15 L780,25 L790,35 Z" />
+    <path d="M900,25 L890,15 L880,25 L890,35 Z" />
+    <path d="M1000,25 L990,15 L980,25 L990,35 Z" />
+    <path d="M1100,25 L1090,15 L1080,25 L1090,35 Z" />
+    <path d="M1200,25 L1190,15 L1180,25 L1190,35 Z" />
+  </g>
+  
+  <!-- Center Medallion -->
+  <g transform="translate(600, 25)">
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#00843D" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#00843D" stroke-width="1" />
+    <path d="M0,-8 L3,-3 L8,0 L3,3 L0,8 L-3,3 L-8,0 L-3,-3 Z" fill="#00843D" fill-opacity="0.3" />
+  </g>
+  
+  <!-- Small decorative elements -->
+  <g fill="#FFD700" fill-opacity="0.3">
+    <circle cx="150" cy="25" r="2" />
+    <circle cx="250" cy="25" r="2" />
+    <circle cx="350" cy="25" r="2" />
+    <circle cx="450" cy="25" r="2" />
+    <circle cx="550" cy="25" r="2" />
+    <circle cx="650" cy="25" r="2" />
+    <circle cx="750" cy="25" r="2" />
+    <circle cx="850" cy="25" r="2" />
+    <circle cx="950" cy="25" r="2" />
+    <circle cx="1050" cy="25" r="2" />
+    <circle cx="1150" cy="25" r="2" />
+  </g>
+</svg> 

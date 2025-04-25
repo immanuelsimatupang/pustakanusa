@@ -1,0 +1,32 @@
+/*
+* Variables CSS untuk PustakaNusa
+* Mendefinisikan warna dan variabel utama untuk penggunaan konsisten di seluruh website
+*/
+
+:root {
+    /* Warna utama - Biru Pustaka */
+    --primary-color: #3366cc;
+    --primary-dark: #2951a3;
+    --primary-light: #5c85d6;
+    --primary-bg-subtle: #e6f0ff;
+    --primary-border-subtle: #cce0ff;
+    
+    /* Warna netral */
+    --dark: #212529;
+    --light: #f8f9fa;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --gray-light: #dee2e6;
+    
+    /* Font family */
+    --serif-font: 'Merriweather', serif;
+    --body-font: 'Open Sans', sans-serif;
+    --heading-font: 'Merriweather', serif;
+    
+    /* Bootstrap color overrides */
+    --bs-primary: #3366cc;
+    --bs-primary-rgb: 51, 102, 204;
+    --bs-primary-border-subtle: #cce0ff;
+    --bs-primary-bg-subtle: #e6f0ff;
+    --bs-primary-text-emphasis: #3366cc;
+} 
