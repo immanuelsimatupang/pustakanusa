@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-// Load security functions and database connection
-require_once __DIR__ . '/includes/security.php';
-require_once __DIR__ . '/config/database.php';
-require_once __DIR__ . '/includes/two_factor_auth.php';
-
 // Cek jika user sudah login
 if (isset($_SESSION['user_id'])) {
     header("Location: dashboard.php");
@@ -21,47 +16,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['username']) || empty($_POST['password'])) {
         $error_message = "Username dan password harus diisi.";
     } else {
-        $username = sanitizeInput($_POST['username']);
-        $password = $_POST['password'];
+        // Pada implementasi sebenarnya, ini akan terhubung ke database
+        // Untuk contoh ini, kita gunakan hardcoded credentials
+        $demo_username = "demo";
+        $demo_password = "password123";
         
-        // Prepare statement to prevent SQL injection
-        $stmt = $conn->prepare("SELECT id, username, email, password, name, two_factor_enabled FROM users WHERE username = ? OR email = ?");
-        $stmt->bind_param("ss", $username, $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        
-        if ($result->num_rows == 1) {
-            $user = $result->fetch_assoc();
+        if ($_POST['username'] === $demo_username && $_POST['password'] === $demo_password) {
+            // Login berhasil
+            $_SESSION['user_id'] = 1;
+            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['user_role'] = 'student';
             
-            // Verify password
-            if (password_verify($password, $user['password'])) {
-                // Login successful - set session variables
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['name'] = $user['name'];
-                $_SESSION['login_verified'] = true; // User has successfully logged in with password
-                
-                // Check if user has 2FA enabled
-                if ($user['two_factor_enabled'] == 1) {
-                    // Redirect to 2FA verification page
-                    header("Location: 2fa_verify.php");
-                    exit;
-                } else {
-                    // No 2FA required, go directly to dashboard
-                    header("Location: dashboard.php");
-                    exit;
-                }
-            } else {
-                $error_message = "Username atau password salah.";
-                logSecurityEvent('login_failed', ['username' => $username]);
-            }
+            // Redirect ke dashboard
+            header("Location: dashboard.php");
+            exit;
         } else {
             $error_message = "Username atau password salah.";
-            logSecurityEvent('login_failed', ['username' => $username]);
         }
-        
-        $stmt->close();
     }
 }
 ?>

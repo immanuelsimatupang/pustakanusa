@@ -1,0 +1,57 @@
+```
+# Backup files
+*.bak
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# Editor/IDE files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+pip-wheel-metadata/
+
+# Build artifacts
+dist/
+build/
+*.so
+*.dll
+*.exe
+*.out
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Database migration backups (if any)
+*.sql.bak
+*.db.bak
+
+# Security related temp files
+security_analysis_report.md
+security_improvements_summary.md
+```

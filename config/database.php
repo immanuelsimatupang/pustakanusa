@@ -1,9 +1,13 @@
 <?php
+// Load environment variables
+require_once __DIR__ . '/env.php';
+loadEnv(__DIR__ . '/../.env');
+
 // Konfigurasi database
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'pustakanusa';
+$host = env('DB_HOST', 'localhost');
+$username = env('DB_USERNAME', 'root');
+$password = env('DB_PASSWORD', '');
+$database = env('DB_DATABASE', 'pustakanusa');
 
 // Membuat koneksi
 $conn = new mysqli($host, $username, $password, $database);

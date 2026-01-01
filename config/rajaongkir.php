@@ -1,9 +1,13 @@
 <?php
+// Load environment variables
+require_once __DIR__ . '/env.php';
+loadEnv(__DIR__ . '/../.env');
+
 // Konfigurasi RajaOngkir API
-define('RAJAONGKIR_API_KEY_COST', 'vRnucRXe7b460970b3498166c0tL09ZL'); // API key untuk biaya pengiriman
-define('RAJAONGKIR_API_KEY_DELIVERY', 'H86A0gyl7b460970b3498166G4qI254l'); // API key untuk pengiriman
+define('RAJAONGKIR_API_KEY_COST', env('RAJAONGKIR_API_KEY_COST', 'vRnucRXe7b460970b3498166c0tL09ZL')); // API key untuk biaya pengiriman
+define('RAJAONGKIR_API_KEY_DELIVERY', env('RAJAONGKIR_API_KEY_DELIVERY', 'H86A0gyl7b460970b3498166G4qI254l')); // API key untuk pengiriman
 define('RAJAONGKIR_BASE_URL', 'https://api.rajaongkir.com/starter');
-define('RAJAONGKIR_ORIGIN', '152'); // ID Kota asal (Jakarta Pusat)
+define('RAJAONGKIR_ORIGIN', env('RAJAONGKIR_ORIGIN', '152')); // ID Kota asal (Jakarta Pusat)
 
 /**
  * Mengambil daftar provinsi dari RajaOngkir API

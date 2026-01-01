@@ -5,8 +5,17 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Redirect ke halaman login jika belum login
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['login_verified']) || !$_SESSION['login_verified']) {
     header('Location: login.php');
+    exit;
+}
+
+// Check if 2FA is enabled and user is not verified with 2FA
+require_once 'includes/two_factor_auth.php';
+$twoFA = new TwoFactorAuth($conn);
+if ($twoFA->is2FAEnabled($_SESSION['user_id']) && (!isset($_SESSION['2fa_verified']) || !$_SESSION['2fa_verified'])) {
+    // Redirect to 2FA verification page
+    header('Location: 2fa_verify.php');
     exit;
 }
 
