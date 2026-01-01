@@ -1,8 +1,12 @@
 <?php
+// Load environment variables
+require_once __DIR__ . '/env.php';
+loadEnv(__DIR__ . '/../.env');
+
 // Konfigurasi Midtrans
-define('MIDTRANS_SERVER_KEY', 'your_server_key_here'); // Ganti dengan Server Key Anda
-define('MIDTRANS_CLIENT_KEY', 'your_client_key_here'); // Ganti dengan Client Key Anda
-define('MIDTRANS_IS_PRODUCTION', false); // Set true untuk production
+define('MIDTRANS_SERVER_KEY', env('MIDTRANS_SERVER_KEY', 'your_server_key_here')); // Ganti dengan Server Key Anda
+define('MIDTRANS_CLIENT_KEY', env('MIDTRANS_CLIENT_KEY', 'your_client_key_here')); // Ganti dengan Client Key Anda
+define('MIDTRANS_IS_PRODUCTION', env('MIDTRANS_IS_PRODUCTION', false)); // Set true untuk production
 define('MIDTRANS_SANITIZE', true);
 define('MIDTRANS_3DS', true);
 

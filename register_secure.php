@@ -3,7 +3,6 @@ session_start();
 
 // Load security functions
 require_once __DIR__ . '/includes/security.php';
-require_once __DIR__ . '/config/database.php'; // Load database connection
 
 // Cek jika user sudah login
 if (isset($_SESSION['user_id'])) {
@@ -100,6 +99,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
+}
+
+// Fungsi untuk validasi kekuatan password
+function validatePasswordStrength($password) {
+    // Minimal 8 karakter dengan huruf besar, huruf kecil, angka, dan karakter spesial
+    $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
+    return preg_match($pattern, $password);
 }
 ?>
 
