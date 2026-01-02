@@ -1,0 +1,240 @@
+/* Reader CSS for PustakaNusa */
+/* Main container styles */
+body {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.reader-container {
+    display: flex;
+    height: calc(100vh - 76px); /* Adjust for navbar height */
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Sidebar styles */
+.sidebar-left,
+.sidebar-right {
+    flex: 0 0 300px;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-left {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-right {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: fixed;
+    right: -300px;
+    top: 76px;
+    bottom: 0;
+    z-index: 10;
+    transition: right 0.3s ease;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* When right sidebar is visible */
+.reader-container.right-sidebar-visible .sidebar-right {
+    right: 0;
+}
+
+/* When left sidebar is collapsed */
+.reader-container.left-sidebar-collapsed .sidebar-left {
+    margin-left: -300px;
+}
+
+.reader-container.left-sidebar-collapsed .reader-content {
+    flex: 1;
+}
+
+/* Main content area */
+.reader-content {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Navigation bar inside content */
+.reader-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.reader-title {
+    font-weight: 500;
+}
+
+.reader-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Book content area */
+.book-page-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.book-page-content h2 {
+    margin-bottom: 20px;
+    color: #3366cc;
+}
+
+.book-page-content p {
+    margin-bottom: 20px;
+}
+
+/* Bottom navigation */
+.reader-bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.current-page {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Book info in sidebar */
+.book-cover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-title {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.book-author {
+    font-size: 14px;
+}
+
+/* Comment styles */
+.comments-container {
+    padding: 0;
+}
+
+.comment-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.comment-body {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .sidebar-left {
+        flex: 0 0 250px;
+    }
+    
+    .book-page-content {
+        padding: 20px;
+    }
+    
+    .reader-container.left-sidebar-collapsed .sidebar-left {
+        margin-left: -250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .book-page-content {
+        padding: 15px;
+    }
+    
+    .reader-bottom-nav {
+        padding: 10px;
+    }
+    
+    .reader-bottom-nav a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    
+    .current-page {
+        font-size: 12px;
+    }
+}
+
+/* Theme styles */
+.theme-btn.active {
+    background-color: #3366cc;
+    border-color: #3366cc;
+} 

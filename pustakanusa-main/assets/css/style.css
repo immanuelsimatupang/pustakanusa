@@ -1,0 +1,1439 @@
+/**
+ * Main CSS File for Kahfi Education Website
+ * Includes all custom styles for the website.
+ */
+
+/* Base styles */
+:root {
+    --primary-color: #198754;
+    --primary-light: #def8ea;
+    --primary-dark: #146c43;
+    --secondary-color: #354F52;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    --primary-hover: #116c42;
+    --success-light: rgba(25, 135, 84, 0.1);
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --arabic-font: 'Amiri', serif;
+    --body-font: 'Open Sans', sans-serif;
+    --bs-success: #00843D;
+    --bs-success-rgb: 0, 132, 61;
+    --bs-success-bg-subtle: #e6f5ed;
+    --bs-success-border-subtle: #ccebda;
+    --bs-success-text-emphasis: #00843D;
+    --bs-success-bg-emphasis: #00843D;
+}
+
+/* Global reset important styles */
+html, body {
+    overflow-x: hidden;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* Arabic text styling */
+.arabic-text {
+    font-family: var(--arabic-font);
+    line-height: 1.8;
+    direction: rtl;
+}
+
+.arabic-text-sm {
+    font-family: var(--arabic-font);
+    line-height: 1.5;
+    direction: rtl;
+}
+
+/* ==================== 
+   HEADER & NAVBAR STYLES 
+   ==================== */
+
+/* Topbar styling */
+.bg-success.bg-gradient.text-white.py-1,
+header ~ .bg-success.bg-gradient.text-white.py-1,
+nav ~ .bg-success.bg-gradient.text-white.py-1,
+div.bg-success.bg-gradient.text-white.py-1 {
+    box-shadow: none !important;
+    border: none !important;
+    position: relative;
+    z-index: 1031; /* Higher than navbar */
+}
+
+/* All Navbar Styling - Combined and Cleaned */
+.navbar,
+.navbar.navbar-expand-lg,
+.navbar.navbar-light,
+.navbar.shadow-sm,
+.navbar.sticky-top {
+    background-color: white;
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+    border: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+    z-index: 1030;
+}
+
+/* Add subtle bottom border instead of shadow */
+.navbar,
+.navbar.shadow-sm,
+.navbar.sticky-top,
+.navbar.navbar-expand-lg.navbar-light.bg-white.shadow-sm.py-2.sticky-top,
+nav.navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: none !important;
+}
+
+/* Shadow removal for all cases */
+.shadow-sm,
+.sticky-top, 
+.fixed-top {
+    box-shadow: none !important;
+}
+
+/* Navbar brand */
+.navbar-brand {
+    font-weight: 700;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    color: var(--dark-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: var(--primary-color);
+}
+
+.navbar-nav .active > .nav-link,
+.navbar-nav .nav-link.active,
+.navbar .nav-link.active,
+.navbar .dropdown-item.active {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+/* Navbar Dropdown Styling - Desktop */
+@media (min-width: 992px) {
+    /* Desktop dropdown styling */
+    .navbar .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        animation: fadeIn 0.3s ease;
+    }
+    
+    .navbar .dropdown-menu {
+        display: none;
+        border: none;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Animasi dropdown menu */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Indikator untuk menu dropdown */
+    .navbar .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 0.255em;
+        vertical-align: middle;
+        content: "";
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
+        transition: transform 0.2s ease;
+    }
+    
+    .navbar .dropdown:hover .dropdown-toggle::after {
+        transform: rotate(180deg);
+    }
+}
+
+/* Navbar Dropdown Styling - Mobile */
+@media (max-width: 991.98px) {
+    /* Mobile dropdown styling */
+    .navbar .dropdown-menu {
+        border: none;
+        padding-left: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.03);
+        box-shadow: none;
+    }
+    
+    .navbar .dropdown-item {
+        padding: 0.5rem 0;
+    }
+    
+    .navbar .dropdown-toggle::after {
+        float: right;
+        margin-top: 0.5rem;
+    }
+    
+    .navbar .nav-item {
+        width: 100%;
+    }
+    
+    .navbar .nav-link {
+        padding: 0.7rem 0;
+    }
+    
+    .navbar-collapse {
+        max-height: 80vh;
+        overflow-y: auto;
+        padding-top: 1rem;
+        background-color: #fff;
+        padding: 1rem;
+        z-index: 1030;
+    }
+    
+    /* Mobile active state styling */
+    .navbar .dropdown-item.active {
+        background-color: transparent;
+        color: var(--primary-color);
+    }
+    
+    /* Fix for navbar toggle on mobile */
+    .navbar-collapse.show {
+        display: block !important;
+    }
+    
+    /* Fix for dropdown menu on mobile */
+    .dropdown-menu.show {
+        display: block !important;
+    }
+    
+    .navbar-nav {
+        margin-top: 1rem;
+    }
+    
+    .navbar .btn {
+        margin-top: 0.5rem;
+    }
+    
+    /* Fix for navbar toggler */
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+}
+
+/* Dropdown styling across all viewports */
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.dropdown-item.active {
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* End of Navbar Styles */
+
+/* Transisi halus untuk hover */
+.navbar .nav-link,
+.navbar .dropdown-item,
+.footer a,
+.social-icons a,
+.card,
+.btn,
+a {
+    transition: all 0.3s ease;
+}
+
+/* Back to top button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+    opacity: 1;
+}
+
+#back-to-top i {
+    font-size: 1.25rem;
+}
+
+footer {
+    position: relative;
+    z-index: 10; /* Pastikan footer memiliki z-index lebih rendah dari back-to-top button */
+}
+
+/* Menghapus style yang lama karena ID berbeda dengan yang di JS */
+#btn-back-to-top {
+    display: none; /* Hide old button if it exists */
+}
+
+/* Button styling */
+.btn {
+    border-radius: 4px;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+}
+
+.btn-success, .btn-outline-success {
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+}
+
+.btn-success {
+    background-color: #00843D !important;
+    border-color: #00843D !important;
+}
+
+.btn-success:hover, 
+.btn-success:focus, 
+.btn-success:active {
+    background-color: #006e33 !important;
+    border-color: #006e33 !important;
+}
+
+.btn-outline-success {
+    color: #00843D !important;
+    border-color: #00843D !important;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus,
+.btn-outline-success:active {
+    color: #fff !important;
+    background-color: #00843D !important;
+    border-color: #00843D !important;
+}
+
+/* Card styling */
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--dark-color);
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white !important;
+}
+
+.footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+/* Custom Link Styles */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Utility classes */
+.text-success {
+    color: #00843D !important;
+}
+
+.bg-success {
+    background-color: #00843D !important;
+}
+
+.bg-success-subtle {
+    background-color: #e6f5ed !important;
+}
+
+.bg-success-light {
+    background-color: var(--success-light) !important;
+}
+
+.rounded-4 {
+    border-radius: 0.5rem;
+}
+
+.shadow-hover {
+    transition: all 0.3s ease;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Background patterns - Fixed z-index issues */
+.bg-pattern {
+    background: linear-gradient(rgba(0, 132, 61, 0.9), rgba(0, 132, 61, 0.9)), 
+                url('../img/patterns/islamic-pattern.svg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    box-shadow: none !important;
+    border: none !important;
+    margin-top: 0 !important;
+    position: relative;
+}
+
+.bg-pattern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.bg-pattern .container {
+    position: relative;
+    z-index: 5; /* Ensure content is above the overlay */
+}
+
+/* Page header styling - Fixed z-index issues */
+.page-header {
+    background-color: var(--primary-color);
+    background-image: url('../img/islamic-pattern-bg.svg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    box-shadow: none !important;
+    border: none !important;
+    margin-top: 0 !important;
+}
+
+.page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 5; /* Ensure content is above the overlay */
+}
+
+/* Feature Icons */
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.feature-icon.bg-success {
+    background-color: #00843D !important;
+}
+
+/* Timeline Horizontal Styles - Improved */
+.horizontal-timeline {
+  position: relative;
+  padding: 3rem 0;
+  margin: 3rem auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+  z-index: 1;
+}
+
+.timeline-items {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: nowrap;
+  margin: 0 -10px;
+}
+
+.timeline-item {
+  flex: 0 0 16.666%;
+  min-width: 150px;
+  max-width: 16.666%;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.timeline-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  margin: 0 auto;
+  position: relative;
+  top: 35px;
+  z-index: 3;
+  transition: all 0.3s ease;
+  border: 5px solid white;
+  box-shadow: 0 0 0 3px rgba(0, 132, 61, 0.5);
+}
+
+.timeline-date {
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--primary-color);
+  margin: 2.5rem 0 1rem;
+  padding: 0.3rem 0.8rem;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 132, 61, 0.1);
+  border-radius: 5px;
+}
+
+.timeline-date::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 20%;
+  width: 60%;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.timeline-content {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 132, 61, 0.03);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.timeline-content h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-content p {
+  margin-bottom: 0;
+  font-size: 14px;
+  flex-grow: 1;
+  line-height: 1.5;
+  color: #555;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover effects */
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
+  background-color: var(--primary-dark);
+  box-shadow: 0 0 0 4px rgba(0, 132, 61, 0.5);
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-top-color: var(--primary-dark);
+}
+
+.timeline-item:hover .timeline-content::before {
+  transform: scaleX(1);
+}
+
+.timeline-item:hover .timeline-date {
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  background-color: rgba(0, 132, 61, 0.2);
+}
+
+.timeline-item:hover .timeline-date::after {
+  width: 70%;
+  left: 15%;
+  height: 4px;
+  background-color: var(--primary-dark);
+}
+
+/* Media Queries for Timeline */
+@media (max-width: 1200px) {
+  .timeline-items {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .timeline-item {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+    margin-bottom: 40px;
+  }
+  
+  .timeline-line {
+    top: 50px;
+    width: 90%;
+    left: 5%;
+  }
+  
+  .timeline-content {
+    height: auto;
+    min-height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-items {
+    margin: 0 -5px;
+  }
+  
+  .timeline-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 5px;
+  }
+  
+  .timeline-line {
+    width: 80%;
+    left: 10%;
+  }
+  
+  .timeline-content {
+    padding: 1.25rem;
+    min-height: 150px;
+  }
+  
+  .timeline-content h4 {
+    font-size: 16px;
+  }
+  
+  .timeline-content p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .horizontal-timeline {
+    padding: 2rem 0;
+  }
+  
+  .timeline-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+  
+  .timeline-line {
+    display: none;
+  }
+  
+  .timeline-date {
+    margin: 1rem 0;
+  }
+  
+  .timeline-dot {
+    top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .timeline-content {
+    min-height: auto;
+  }
+}
+
+/* Prayer Time Styles */
+.prayer-times {
+    margin-top: 1rem;
+}
+
+.prayer-time-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.prayer-time-item:last-child {
+    border-bottom: none;
+}
+
+/* Islamic Quote */
+.islamic-quote {
+    background-color: var(--primary-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Islamic Divider */
+.islamic-divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #00843D, transparent);
+    margin: 1.5rem 0;
+}
+
+/* Qibla Styles */
+.qibla-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#qibla-pointer {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Testimonial Carousel */
+.testimonial-carousel .card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-carousel .card:hover {
+    transform: translateY(-5px);
+}
+
+/* Social Icons */
+.social-icons a {
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    color: var(--primary-color) !important;
+}
+
+/* Custom Accordion Styles */
+.accordion-button:not(.collapsed) {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+/* Map Container */
+.map-container {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+/* Custom Form Styles */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Progress bars */
+.progress-bar-success {
+    background-color: #00843D !important;
+}
+
+/* Alert styles */
+.alert-success {
+    background-color: #e6f5ed !important;
+    border-color: #ccebda !important;
+    color: #00843D !important;
+}
+
+/* Badge styles */
+.badge.bg-success {
+    background-color: #00843D !important;
+}
+
+/* Link styles */
+a.text-success:hover,
+a.text-success:focus {
+    color: #006e33 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .timeline {
+        flex-wrap: wrap;
+        padding-top: 50px;
+    }
+    
+    .timeline::before {
+        width: 90%;
+        left: 5%;
+        top: 80px;
+    }
+    
+    .timeline-item {
+        width: 33.33%;
+        min-width: 120px;
+        margin-bottom: 40px;
+    }
+    
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-top: 90px;
+        margin-top: 0;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        top: 70px;
+        bottom: auto;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::after,
+    .timeline-item:nth-child(even) .timeline-content::after {
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent #fff transparent;
+        top: -20px;
+        bottom: auto;
+    }
+    
+    .timeline-content {
+        height: 160px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .timeline-item {
+        width: 50%;
+    }
+    
+    .timeline::before {
+        top: 80px;
+    }
+    
+    .timeline-content {
+        height: 180px;
+    }
+}
+
+/* Fix for margin and padding - avoid duplicates */
+.container, .container-fluid {
+    margin-top: 0 !important;
+}
+
+/* Fix untuk overflow pada mobile */
+body {
+    overflow-x: hidden;
+}
+
+/* Perjalanan Timeline */
+.perjalanan-timeline {
+    position: relative;
+    margin: 50px 0 80px;
+    padding: 20px 0;
+}
+
+.perjalanan-line {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #e9ecef;
+    z-index: 1;
+}
+
+.perjalanan-item {
+    position: relative;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perjalanan-point {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.perjalanan-year {
+    background-color: #2b71b8;
+    color: white;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.perjalanan-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 4px solid #2b71b8;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.perjalanan-content {
+    text-align: center;
+    max-width: 250px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.perjalanan-content h4 {
+    color: #2b71b8;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Hover effects */
+.perjalanan-item:hover .perjalanan-year {
+    background-color: #1a4a78;
+    transform: translateY(-3px);
+}
+
+.perjalanan-item:hover .perjalanan-dot {
+    background-color: #2b71b8;
+    transform: scale(1.2);
+}
+
+.perjalanan-item:hover .perjalanan-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Responsive timeline */
+@media (min-width: 768px) {
+    .perjalanan-timeline {
+        display: flex;
+        justify-content: space-between;
+        overflow-x: auto;
+        padding: 40px 20px;
+    }
+    
+    .perjalanan-line {
+        top: 50px;
+    }
+    
+    .perjalanan-item {
+        flex: 0 0 auto;
+        margin: 0 15px;
+        width: 200px;
+    }
+    
+    .perjalanan-content {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .perjalanan-timeline {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .perjalanan-line {
+        top: 0;
+        left: 20px;
+        width: 4px;
+        height: 100%;
+    }
+    
+    .perjalanan-item {
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+    
+    .perjalanan-point {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+    
+    .perjalanan-content {
+        text-align: left;
+        margin-left: 15px;
+        max-width: calc(100% - 80px);
+    }
+}
+
+/* Islamic Divider */
+.islamic-divider {
+    position: relative;
+    height: 30px;
+    width: 100px;
+    margin: 20px auto;
+    background-image: url('../img/islamic-pattern-divider.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Teacher Gallery Styles */
+.teacher-gallery {
+  padding: 1rem 0;
+}
+
+.teacher-filter {
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.teacher-filter.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.teacher-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.teacher-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.teacher-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.teacher-overlay {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  background: rgba(0, 132, 61, 0.8);
+  padding: 10px 0;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.teacher-social {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  margin: 0 5px;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--primary-dark);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.teacher-card:hover .teacher-overlay {
+  bottom: 0;
+  opacity: 1;
+}
+
+.teacher-card:hover .teacher-image img {
+  transform: scale(1.05);
+}
+
+.teacher-info {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.teacher-info h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--dark-color);
+}
+
+.teacher-info .subject {
+  display: block;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.teacher-info .qualification {
+  font-size: 0.8rem;
+  color: var(--gray-color);
+  margin-bottom: 0;
+}
+
+/* Success Stories Testimonial Styles */
+.testimonial-carousel {
+  padding: 2rem 0;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+  padding: 0 4rem;
+}
+
+.testimonial-item {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding: 1rem;
+}
+
+.testimonial-item.active {
+  display: block;
+  opacity: 1;
+}
+
+.testimonial-img {
+  position: relative;
+}
+
+.testimonial-img img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.university-badge {
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.testimonial-author h4 {
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.testimonial-rating {
+  font-size: 1rem;
+}
+
+.testimonial-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.testimonial-prev {
+  left: 10px;
+}
+
+.testimonial-next {
+  right: 10px;
+}
+
+.testimonial-nav:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.testimonial-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testimonial-dot.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .testimonial-slider {
+    padding: 0 2rem;
+  }
+  
+  .testimonial-img img {
+    height: 250px;
+  }
+}
+
+/* Add additional styles for homepage components */
+
+/* Hero Carousel Banner */
+#hero-carousel .carousel-item {
+    height: 400px;
+}
+
+#hero-carousel .carousel-item img {
+    object-fit: cover;
+    height: 100%;
+}
+
+#hero-carousel .carousel-control-prev,
+#hero-carousel .carousel-control-next {
+    width: 5%;
+}
+
+#hero-carousel .carousel-indicators {
+    bottom: 20px;
+}
+
+/* Category Icons */
+#category-icons .rounded-circle {
+    transition: all 0.3s ease;
+}
+
+#category-icons a:hover .rounded-circle {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#category-icons p {
+    transition: all 0.3s ease;
+}
+
+#category-icons a:hover p {
+    color: var(--primary-color) !important;
+}
+
+/* Flash Sale Products */
+.product-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.product-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.product-card .btn {
+    transition: all 0.3s ease;
+}
+
+.flash-sale-controls button {
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.flash-sale-controls button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Featured Books Cards */
+#featured-books .card {
+    transition: all 0.3s ease;
+}
+
+#featured-books .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+#featured-books .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+#featured-books .card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    #hero-carousel .carousel-item {
+        height: 350px;
+    }
+    
+    .product-card .card-img-top {
+        height: 160px;
+    }
+    
+    #featured-books .card-img-top {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero-carousel .carousel-item {
+        height: 300px;
+    }
+    
+    .product-card .card-img-top {
+        height: 140px;
+    }
+    
+    #featured-books .card-img-top {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    #hero-carousel .carousel-item {
+        height: 250px;
+    }
+    
+    .product-card .card-img-top {
+        height: 120px;
+    }
+}
