@@ -1,31 +1,31 @@
 /**
- * Main CSS File for Kahfi Education Website
- * Includes all custom styles for the website.
+ * Main CSS File for Reading Club Syndicate
+ * Includes all custom styles for the book community website.
  */
 
 /* Base styles */
 :root {
-    --primary-color: #198754;
-    --primary-light: #def8ea;
-    --primary-dark: #146c43;
-    --secondary-color: #354F52;
-    --light-color: #f8f9fa;
-    --dark-color: #212529;
-    --gray-color: #6c757d;
-    --primary-hover: #116c42;
-    --success-light: rgba(25, 135, 84, 0.1);
-    --success-color: #198754;
+    --primary-color: #8B4513; /* Saddle Brown */
+    --primary-light: #D4AF37; /* Antique Gold */
+    --primary-dark: #2C1810; /* Dark Brown */
+    --secondary-color: #6B4423; /* Burgundy */
+    --light-color: #F5F5DC; /* Ivory */
+    --dark-color: #2F2F2F; /* Dark Gray */
+    --gray-color: #7D7D7D; /* Light Gray */
+    --primary-hover: #6B4423;
+    --success-light: rgba(212, 175, 55, 0.1); /* Antique Gold Light */
+    --success-color: #D4AF37; /* Antique Gold */
     --danger-color: #dc3545;
     --warning-color: #ffc107;
     --info-color: #0dcaf0;
     --arabic-font: 'Amiri', serif;
-    --body-font: 'Open Sans', sans-serif;
-    --bs-success: #00843D;
-    --bs-success-rgb: 0, 132, 61;
-    --bs-success-bg-subtle: #e6f5ed;
-    --bs-success-border-subtle: #ccebda;
-    --bs-success-text-emphasis: #00843D;
-    --bs-success-bg-emphasis: #00843D;
+    --body-font: 'Inter', 'Georgia', serif;
+    --bs-success: #D4AF37; /* Antique Gold */
+    --bs-success-rgb: 212, 175, 55;
+    --bs-success-bg-subtle: #f8f6eb;
+    --bs-success-border-subtle: #f0e9d2;
+    --bs-success-text-emphasis: #D4AF37;
+    --bs-success-bg-emphasis: #D4AF37;
 }
 
 /* Global reset important styles */
@@ -1302,6 +1302,105 @@ body {
 }
 
 /* Add additional styles for homepage components */
+
+/* Dark Academia Theme Customizations */
+.btn-gold {
+    color: var(--primary-dark);
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+}
+
+.btn-gold:hover,
+.btn-gold:focus,
+.btn-gold:active {
+    color: var(--light-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.bg-gold {
+    background-color: var(--primary-light) !important;
+}
+
+.text-gold {
+    color: var(--primary-light) !important;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(44, 24, 16, 0.8), rgba(44, 24, 16, 0.8)), url('../assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Event Card Styles */
+.event-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(44, 24, 16, 0.2);
+    border-color: var(--primary-light);
+}
+
+/* Review Card Styles */
+.review-card {
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--primary-light);
+}
+
+.review-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(44, 24, 16, 0.15);
+}
+
+/* Donation Progress Card */
+div.donation-progress-card {
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.donation-progress-bar {
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.donation-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    transition: width 0.5s ease;
+}
+
+/* Book Card for Shop */
+.shop-book-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.shop-book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(44, 24, 16, 0.15);
+}
+
+/* Razi Voice Styling */
+.razi-quote {
+    font-style: italic;
+    color: var(--gray-color);
+    border-left: 3px solid var(--primary-light);
+    padding-left: 1rem;
+    margin: 1rem 0;
+}
+
+/* Discord Integration */
+.discord-widget {
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
 
 /* Hero Carousel Banner */
 #hero-carousel .carousel-item {
