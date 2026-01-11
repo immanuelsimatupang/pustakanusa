@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60">
+  <!-- Background Rectangle - transparent for white version -->
+  <rect width="240" height="60" rx="8" fill="transparent" />
+  
+  <!-- Book Icon -->
+  <g transform="translate(15, 10)">
+    <path d="M25,0 C38.8071,0 50,11.1929 50,25 C50,38.8071 38.8071,50 25,50 C11.1929,50 0,38.8071 0,25 C0,11.1929 11.1929,0 25,0 Z" fill="white" opacity="0.9" />
+    <path d="M17,14 L33,14 C34.1046,14 35,14.8954 35,16 L35,36 C35,37.1046 34.1046,38 33,38 L17,38 C15.8954,38 15,37.1046 15,36 L15,16 C15,14.8954 15.8954,14 17,14 Z" fill="#3366cc" />
+    <path d="M20,14 L20,38 L18,38 C16.8954,38 16,37.1046 16,36 L16,16 C16,14.8954 16.8954,14 18,14 L20,14 Z" fill="white" opacity="0.3" />
+    <path d="M22,20 L30,20 C30.5523,20 31,20.4477 31,21 C31,21.5523 30.5523,22 30,22 L22,22 C21.4477,22 21,21.5523 21,21 C21,20.4477 21.4477,20 22,20 Z" fill="white" />
+    <path d="M22,24 L30,24 C30.5523,24 31,24.4477 31,25 C31,25.5523 30.5523,26 30,26 L22,26 C21.4477,26 21,25.5523 21,25 C21,24.4477 21.4477,24 22,24 Z" fill="white" />
+    <path d="M22,28 L30,28 C30.5523,28 31,28.4477 31,29 C31,29.5523 30.5523,30 30,30 L22,30 C21.4477,30 21,29.5523 21,29 C21,28.4477 21.4477,28 22,28 Z" fill="white" />
+  </g>
+  
+  <!-- Text "Pustaka" -->
+  <text x="80" y="30" font-family="'Open Sans', sans-serif" font-size="22" font-weight="700" fill="white">Pustaka</text>
+  
+  <!-- Text "Nusa" -->
+  <text x="155" y="30" font-family="'Open Sans', sans-serif" font-size="22" font-weight="700" fill="white">Nusa</text>
+  
+  <!-- Tagline -->
+  <text x="80" y="45" font-family="'Open Sans', sans-serif" font-size="10" font-weight="400" fill="rgba(255,255,255,0.8)">Platform Literasi Digital Indonesia</text>
+</svg> 

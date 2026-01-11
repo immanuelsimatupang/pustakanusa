@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="islamic-pattern" patternUnits="userSpaceOnUse" width="200" height="200">
+      <!-- Star pattern group -->
+      <g fill="none" stroke="#ffffff" stroke-width="2" opacity="0.4">
+        <!-- Eight-pointed star - center -->
+        <path d="M100,0 L114.64,85.36 L200,100 L114.64,114.64 L100,200 L85.36,114.64 L0,100 L85.36,85.36 Z" />
+        
+        <!-- Connecting lines between stars -->
+        <path d="M0,0 L42.68,42.68 M200,0 L157.32,42.68 M0,200 L42.68,157.32 M200,200 L157.32,157.32" />
+        
+        <!-- Octagon -->
+        <path d="M58.58,25 L141.42,25 L175,58.58 L175,141.42 L141.42,175 L58.58,175 L25,141.42 L25,58.58 Z" />
+        
+        <!-- Circular elements -->
+        <circle cx="100" cy="100" r="50" />
+        <circle cx="100" cy="100" r="75" />
+        
+        <!-- Small decorative elements -->
+        <circle cx="100" cy="25" r="5" />
+        <circle cx="175" cy="100" r="5" />
+        <circle cx="100" cy="175" r="5" />
+        <circle cx="25" cy="100" r="5" />
+        
+        <!-- Diagonal decorative lines -->
+        <path d="M25,25 L50,50 M175,25 L150,50 M25,175 L50,150 M175,175 L150,150" />
+      </g>
+    </pattern>
+  </defs>
+  
+  <rect width="1000" height="1000" fill="url(#islamic-pattern)" />
+</svg> 
